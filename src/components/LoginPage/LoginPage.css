@@ -78,8 +78,9 @@ label {
   margin-bottom: 5px;
 }
 
-.signup-form .email, .login-form .email{
-    border: 1px solid #5cc85c;
+.signup-form .email,
+.login-form .email {
+  border: 1px solid #5cc85c;
 }
 
 input {
@@ -88,62 +89,69 @@ input {
   margin-bottom: 15px;
   padding: 8px;
   border-radius: 10px;
+  color: rgb(72, 70, 70);
+  font-size: 15px;
+  font-family: "Poppins";
 }
 
-.pass, .login-form .password{
-    border: 1px solid #1B82B3;
+.pass,
+.login-form .password {
+  border: 1px solid #1b82b3;
 }
 
-.pass:focus,  .login-form .password:focus{
+.pass:focus,
+.login-form .password:focus {
   outline: none;
-  box-shadow: 5px 5px 15px 1px #1B82B3;
+  box-shadow: 5px 5px 15px 1px #1b82b3;
 }
 
-.signup-form .confirmPass:focus{
-    border-color: none;
+.signup-form .confirmPass:focus {
+  border-color: none;
 }
 
-.signup-form .email:focus, .login-form .email:focus {
+.signup-form .email:focus,
+.login-form .email:focus {
   outline: none;
   border-color: #5cc85c;
   box-shadow: 5px 5px 15px 1px #5cc85c;
 }
 
-.signup-form .check{
-    width: 15px;
-    height: 15px;
-    margin: 0px 5px 0px 0px;
+.signup-form .check {
+  width: 15px;
+  height: 15px;
+  margin: 0px 5px 0px 0px;
 }
 
-.signup-form .terms{
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    margin-bottom: 10px;
-    color: gray;
-    text-decoration: none;
+.signup-form .terms {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 10px;
+  color: gray;
+  text-decoration: none;
 }
 
-.signup-form .terms a{
-    color: #1B82B3;
-    text-decoration: none;
+.signup-form .terms a {
+  color: #1b82b3;
+  text-decoration: none;
 }
 
-.signup-form .sign-up-button, .login-form .login-button{
-    width: 145px;
-    align-self: center;
-    font-size: 15px;
-    border-radius: 8px;
+.signup-form .sign-up-button,
+.login-form .login-button {
+  width: 145px;
+  align-self: center;
+  font-size: 15px;
+  border-radius: 8px;
 }
 
-.forgot-password{
-    color: #1B82B3;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 400;
-    text-align: right;
-    margin-bottom: 10px;
+.forgot-password {
+  color: #1b82b3;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: right;
+  margin-bottom: 10px;
 }
 
 button {
