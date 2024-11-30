@@ -3,6 +3,7 @@
 body {
   margin: 0;
   padding: 0;
+  
 }
 
 .auth-container {
@@ -19,25 +20,22 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
   gap: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0 20px;
   margin: 10px;
   background-color: white;
   width: 1020px;
   height: 650px;
   border-radius: 15px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .auth-box {
   width: 100%;
   height: 450px;
   padding: 20px;
-  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,31 +43,23 @@ body {
 }
 
 .auth-box h2 {
-  font-family: Lato;
   font-size: 40px;
   font-weight: 400;
   line-height: 48px;
   text-align: center;
 }
 
-.signup-form {
-  text-align: left;
-}
-
-.login-form {
-  text-align: left;
-}
-
 .vertical-line {
   width: 1px;
-  background: #ccc;
   height: 480px;
+  background: #ccc;
   color: white;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 label {
@@ -78,48 +68,59 @@ label {
   margin-bottom: 5px;
 }
 
-.signup-form .email,
-.login-form .email {
-  border: 1px solid #5cc85c;
-}
-
 input {
   width: 400px;
   height: 30px;
   margin-bottom: 15px;
   padding: 8px;
   border-radius: 10px;
-  color: rgb(72, 70, 70);
   font-size: 15px;
-  font-family: "Poppins";
+  color: grey;
+  border: 1px solid grey;
+  box-shadow: none;
+  transition: all 0.3s ease;
 }
 
-.pass,
-.login-form .password {
+
+input:focus {
+  outline: none;
+}
+
+input.email.valid {
+  border: 1px solid #5cc85c;
+  box-shadow: 0px 0px 5px #5cc85c
+}
+
+input.pass.valid {
   border: 1px solid #1b82b3;
+  box-shadow: 0px 0px 5px #1b82b3;
 }
 
-.pass:focus,
-.login-form .password:focus {
-  outline: none;
-  box-shadow: 5px 5px 15px 1px #1b82b3;
+input.email.invalid,
+input.pass.invalid {
+  border: 1px solid grey;
+}
+.pass-rules{
+  color: #1b82b3;
+  font-size: 12px;
+  margin-top: 0;
 }
 
-.signup-form .confirmPass:focus {
-  border-color: none;
+.error-text {
+  color: red;
+  font-size: 12px;
 }
 
-.signup-form .email:focus,
-.login-form .email:focus {
-  outline: none;
-  border-color: #5cc85c;
-  box-shadow: 5px 5px 15px 1px #5cc85c;
+input[type="checkbox" i] {
+  margin: 0;
+  margin-top: 20px;
 }
 
 .signup-form .check {
   width: 15px;
   height: 15px;
-  margin: 0px 5px 0px 0px;
+  margin-right: 5px;
+  margin-bottom: 20px;
 }
 
 .signup-form .terms {
@@ -129,12 +130,25 @@ input {
   gap: 2px;
   margin-bottom: 10px;
   color: gray;
-  text-decoration: none;
 }
 
 .signup-form .terms a {
   color: #1b82b3;
   text-decoration: none;
+}
+
+button {
+  background: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #0056b3;
 }
 
 .signup-form .sign-up-button,
@@ -150,37 +164,19 @@ input {
   text-decoration: none;
   font-size: 15px;
   font-weight: 400;
-  text-align: right;
   margin-bottom: 10px;
+  text-align: right;
 }
 
-button {
-  background: #007bff;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
 
-button:hover {
-  background: #0056b3;
-}
-
-.social-buttons button {
+.social-buttons a img {
+  width: 32px;
+  height: 32px;
   margin: 5px;
-  padding: 8px 12px;
-  background: #eee;
-  border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.social-buttons button:hover {
-  background: #ddd;
-}
-
-.error-text {
-  color: red;
-  font-size: 12px;
+.social-buttons a img:hover {
+  opacity: 0.8;
 }
