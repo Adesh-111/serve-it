@@ -125,8 +125,8 @@ const LoginPage = () => {
               onChange={handleSignupChange}
               required
               style={{
-                borderColor: error ? "red" : "grey",
-                boxShadow: error ? "0px 0px 5px red" : "none",
+                borderColor: error ? "rgb(236, 103, 103)" : "grey",
+                boxShadow: error ? "0px 0px 5px rgb 236, 103, 103" : "none",
               }}
             />
             {error && <p className="error-text">{error}</p>}
