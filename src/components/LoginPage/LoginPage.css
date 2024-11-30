@@ -84,8 +84,6 @@ input {
 
 input:focus {
   outline: none;
-  border: 1px solid #5cc85c;
-  box-shadow: 0px 0px 5px #5cc85c;
 }
 
 input.email.valid {
@@ -93,17 +91,22 @@ input.email.valid {
   box-shadow: 0px 0px 5px #1b82b3;
 }
 
-input.pass.valid {
+input.pass.valid, input.confirmPass.valid {
   border: 1px solid #1b82b3;
   box-shadow: 0px 0px 5px #1b82b3;
 }
 
+.auth-box label{
+  color: grey;
+}
+
 input.email.invalid,
-input.pass.invalid {
-  border: 1px solid grey;
+input.pass.invalid, 
+input.confirmPass.invalid {
+  border: 1px solid rgb(238, 116, 116);
 }
 .pass-rules{
-  color: #1b82b3;
+  color: gray;
   font-size: 12px;
   margin-top: 0;
 }

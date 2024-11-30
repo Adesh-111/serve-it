@@ -16,6 +16,7 @@ const LoginPage = () => {
 
   const [emailStatus, setEmailStatus] = useState(""); 
   const [passwordStatus, setPasswordStatus] = useState(""); 
+  const [confirmPasswordStatus, setConfirmPasswordStatus] = useState(""); // Updated state
   const [error, setError] = useState("");
   const [passwordErrors, setPasswordErrors] = useState([]);
 
@@ -34,10 +35,13 @@ const LoginPage = () => {
       setPasswordErrors(errors);
     }
 
-    if (name === "confirmPassword" && value !== signupData.password) {
-      setError("Passwords do not match");
-    } else {
-      setError("");
+    if (name === "confirmPassword") {
+      setConfirmPasswordStatus(value === signupData.password ? "valid" : "invalid");
+      if (value !== signupData.password) {
+        setError("Passwords do not match");
+      } else {
+        setError("");
+      }
     }
   };
 
@@ -67,14 +71,17 @@ const LoginPage = () => {
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
+
     if (signupData.password !== signupData.confirmPassword) {
       setError("Passwords do not match");
       return;
     }
+
     if (passwordStatus !== "valid") {
       alert("Please ensure your password meets all requirements.");
       return;
     }
+
     alert("Signup Successful");
   };
 
@@ -89,7 +96,7 @@ const LoginPage = () => {
         <div className="auth-box signup-form">
           <h2>Hey there!</h2>
           <form onSubmit={handleSignupSubmit}>
-            <label style={{ color: "#30C70F" }}>Email:</label>
+            <label>Email:</label>
             <input
               type="email"
               name="email"
@@ -99,7 +106,7 @@ const LoginPage = () => {
               required
             />
 
-            <label style={{ color: "#1B82B3" }}>Password:</label>
+            <label>Password:</label>
             <input
               className={`pass ${passwordStatus}`}
               type="password"
@@ -120,14 +127,10 @@ const LoginPage = () => {
             <input
               type="password"
               name="confirmPassword"
-              className="confirmPass"
+              className={`confirmPass ${confirmPasswordStatus}`}
               value={signupData.confirmPassword}
               onChange={handleSignupChange}
               required
-              style={{
-                borderColor: error ? "rgb(236, 103, 103)" : "grey",
-                boxShadow: error ? "0px 0px 5px rgb 236, 103, 103" : "none",
-              }}
             />
             {error && <p className="error-text">{error}</p>}
 
@@ -147,7 +150,7 @@ const LoginPage = () => {
         <div className="auth-box login-form">
           <h2>Welcome back!</h2>
           <form onSubmit={handleLoginSubmit}>
-            <label style={{ color: "#30C70F" }}>Email:</label>
+            <label>Email:</label>
             <input
               type="email"
               name="email"
@@ -158,7 +161,7 @@ const LoginPage = () => {
               required
             />
 
-            <label style={{ color: "#1B82B3" }}>Password:</label>
+            <label>Password:</label>
             <input
               type="password"
               name="password"
