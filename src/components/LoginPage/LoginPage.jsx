@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./LoginPage.css";
 import assets from "../../assets/assets";
 
@@ -14,11 +14,25 @@ const LoginPage = () => {
     password: "",
   });
 
-  const [emailStatus, setEmailStatus] = useState(""); 
-  const [passwordStatus, setPasswordStatus] = useState(""); 
-  const [confirmPasswordStatus, setConfirmPasswordStatus] = useState(""); // Updated state
+  const [emailStatus, setEmailStatus] = useState("");
+  const [passwordStatus, setPasswordStatus] = useState("");
+  const [confirmPasswordStatus, setConfirmPasswordStatus] = useState("");
   const [error, setError] = useState("");
   const [passwordErrors, setPasswordErrors] = useState([]);
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleSignupChange = (e) => {
     const { name, value } = e.target;
@@ -93,105 +107,115 @@ const LoginPage = () => {
   return (
     <div className="auth-container">
       <div className="main-auth-box">
-        <div className="auth-box signup-form">
-          <h2>Hey there!</h2>
-          <form onSubmit={handleSignupSubmit}>
-            <label>Email:</label>
-            <input
-              type="email"
-              name="email"
-              className={`email ${emailStatus}`}
-              value={signupData.email}
-              onChange={handleSignupChange}
-              required
-            />
+          <div className="auth-box signup-form">
+            <h2>Hey there!</h2>
+            <form onSubmit={handleSignupSubmit}>
+              <label>Email:</label>
+              <input
+                type="email"
+                name="email"
+                className={`email ${emailStatus}`}
+                value={signupData.email}
+                onChange={handleSignupChange}
+                required
+              />
 
-            <label>Password:</label>
-            <input
-              className={`pass ${passwordStatus}`}
-              type="password"
-              name="password"
-              value={signupData.password}
-              onChange={handleSignupChange}
-              required
-            />
-            {passwordErrors.length > 0 && (
-              <ul className="pass-rules">
-                {passwordErrors.map((error, index) => (
-                  <li key={index}>{error}</li>
-                ))}
-              </ul>
-            )}
+              <label>Password:</label>
+              <input
+                className={`pass ${passwordStatus}`}
+                type="password"
+                name="password"
+                value={signupData.password}
+                onChange={handleSignupChange}
+                required
+              />
+              {passwordErrors.length > 0 && (
+                <ul className="pass-rules">
+                  {passwordErrors.map((error, index) => (
+                    <li key={index}>{error}</li>
+                  ))}
+                </ul>
+              )}
 
-            <label style={{ color: "grey" }}>Confirm Password:</label>
-            <input
-              type="password"
-              name="confirmPassword"
-              className={`confirmPass ${confirmPasswordStatus}`}
-              value={signupData.confirmPassword}
-              onChange={handleSignupChange}
-              required
-            />
-            {error && <p className="error-text">{error}</p>}
+              <label style={{ color: "grey" }}>Confirm Password:</label>
+              <input
+                type="password"
+                name="confirmPassword"
+                className={`confirmPass ${confirmPasswordStatus}`}
+                value={signupData.confirmPassword}
+                onChange={handleSignupChange}
+                required
+              />
+              {error && <p className="error-text">{error}</p>}
 
-            <label className="terms">
-              <input type="checkbox" required className="check" />I hereby agree
-              to all the Terms and Conditions mentioned <a href="#">here</a>
-            </label>
+              <label className="terms">
+                <input type="checkbox" required className="check" />I hereby agree
+                to all the Terms and Conditions mentioned <a href="#">here</a>
+              </label>
 
-            <button type="submit" className="sign-up-button">
-              Sign Up
-            </button>
-          </form>
-        </div>
-
-        <div className="vertical-line">|</div>
-
-        <div className="auth-box login-form">
-          <h2>Welcome back!</h2>
-          <form onSubmit={handleLoginSubmit}>
-            <label>Email:</label>
-            <input
-              type="email"
-              name="email"
-              className="email"
-              value={loginData.email}
-              onChange={handleLoginChange}
-              style={{ color: "grey" }}
-              required
-            />
-
-            <label>Password:</label>
-            <input
-              type="password"
-              name="password"
-              className="password"
-              value={loginData.password}
-              style={{ color: "grey" }}
-              onChange={handleLoginChange}
-              required
-            />
-            <a href="#" className="forgot-password">
-              Forgot Password?
-            </a>
-
-            <button type="submit" className="login-button">
-              Log In
-            </button>
-          </form>
-          <p style={{ color: "grey" }}>or you can use</p>
-          <div className="social-buttons">
-            <a href="#">
-              <img src={assets.google} alt="Google Login" />
-            </a>
-            <a href="#">
-              <img src={assets.facebook} alt="Facebook Login" />
-            </a>
-            <a href="#">
-              <img src={assets.x} alt="X Login" />
-            </a>
+              <button type="submit" className="sign-up-button">
+                Sign Up
+              </button>
+            </form>
           </div>
-        </div>
+         
+          <div className="auth-box login-form">
+            <h2>Welcome back!</h2>
+            <p>Already a user? <a href="#" >Click here</a> to log in.</p>
+          </div>
+    
+
+        {windowWidth > 1000 && (
+          <div className="vertical-line">|</div>
+        )}
+
+        {windowWidth > 1000 && (
+          <div className="auth-box login-form">
+            <h2>Welcome back!</h2>
+            <form onSubmit={handleLoginSubmit}>
+              <label>Email:</label>
+              <input
+                type="email"
+                name="email"
+                className="email"
+                value={loginData.email}
+                onChange={handleLoginChange}
+                style={{ color: "grey" }}
+                required
+              />
+
+              <label>Password:</label>
+              <input
+                type="password"
+                name="password"
+                className="password"
+                value={loginData.password}
+                style={{ color: "grey" }}
+                onChange={handleLoginChange}
+                required
+              />
+              <a href="#" className="forgot-password">
+                Forgot Password?
+              </a>
+
+              <button type="submit" className="login-button">
+                Log In
+              </button>
+            </form>
+            <p style={{ color: "grey" }}>or you can use</p>
+            <div className="social-buttons">
+              <a href="#">
+                <img src={assets.google} alt="Google Login" />
+              </a>
+              <a href="#">
+                <img src={assets.facebook} alt="Facebook Login" />
+              </a>
+              <a href="#">
+                <img src={assets.x} alt="X Login" />
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

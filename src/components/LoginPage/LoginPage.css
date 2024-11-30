@@ -185,3 +185,104 @@ button:hover {
 .social-buttons a img:hover {
   opacity: 0.8;
 }
+
+
+@media (max-width: 1024px) {
+  .main-auth-box {
+    width: 90%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .vertical-line {
+    display: none;
+  }
+
+  .auth-box {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .auth-box h2 {
+    font-size: 30px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .signup-form .sign-up-button,
+  .login-form .login-button {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .social-buttons a img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .forgot-password {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-auth-box {
+    padding: 10px;
+  }
+
+  .auth-box h2 {
+    font-size: 24px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .signup-form .sign-up-button,
+  .login-form .login-button {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .social-buttons a img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .forgot-password {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-auth-box {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .auth-box h2 {
+    font-size: 20px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .signup-form .sign-up-button,
+  .login-form .login-button {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .social-buttons a img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .forgot-password {
+    font-size: 12px;
+  }
+}
