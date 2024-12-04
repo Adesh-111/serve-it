@@ -3,8 +3,12 @@
 body {
   margin: 0;
   padding: 0;
-  
-}
+  background: linear-gradient(112.64deg, #93CB44 0.37%, #1B82B3 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  }
 
 .auth-container {
   display: flex;

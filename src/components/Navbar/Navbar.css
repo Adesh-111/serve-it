@@ -1,0 +1,20 @@
+.navbar-container{
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 30px;
+    background-color: white;
+}
+
+.navbar .nav-links{
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    font-family: "Lato", sans-serif;
+    color: #62B31B;
+  }
